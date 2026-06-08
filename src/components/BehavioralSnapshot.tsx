@@ -19,8 +19,8 @@ export default function BehavioralSnapshot({ onViewInsights, consistencyScore }:
 
         {/* Big Score with custom elegant sans */}
         <div className="mt-6">
-          <div className="text-6xl font-light text-blue-600 tracking-tight">{consistencyScore}%</div>
-          <div className="text-sm font-medium text-blue-500/80 mt-1">Moderate</div>
+          <div className="text-6xl font-light text-emerald-600 tracking-tight">{consistencyScore}%</div>
+          <div className="text-sm font-medium text-emerald-550 mt-1">Moderate</div>
         </div>
 
         {/* High-fidelity Vector Sparkline */}
@@ -28,8 +28,8 @@ export default function BehavioralSnapshot({ onViewInsights, consistencyScore }:
           <svg className="w-full h-8 overflow-visible" viewBox="0 0 200 40">
             <defs>
               <linearGradient id="sparklineGrad" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.15" />
-                <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                <stop offset="0%" stopColor="#10b981" stopOpacity="0.15" />
+                <stop offset="100%" stopColor="#10b981" stopOpacity="0" />
               </linearGradient>
             </defs>
             <path
@@ -37,7 +37,7 @@ export default function BehavioralSnapshot({ onViewInsights, consistencyScore }:
                 .map((val, i) => `${(i / (sparklineData.length - 1)) * 200},${35 - (val - 65) * 2}`)
                 .join(" L ")}`}
               fill="none"
-              stroke="#3b82f6"
+              stroke="#10b981"
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -49,7 +49,7 @@ export default function BehavioralSnapshot({ onViewInsights, consistencyScore }:
               fill="url(#sparklineGrad)"
             />
             {/* pulse dot of active state */}
-            <circle cx="200" cy={35 - (sparklineData[sparklineData.length - 1] - 65) * 2} r="3" fill="#3b82f6" />
+            <circle cx="200" cy={35 - (sparklineData[sparklineData.length - 1] - 65) * 2} r="3" fill="#10b981" />
           </svg>
         </div>
 
@@ -73,7 +73,7 @@ export default function BehavioralSnapshot({ onViewInsights, consistencyScore }:
 
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-indigo-50 flex items-center justify-center text-indigo-600">
+                <div className="w-7 h-7 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600">
                   <RefreshCw className="w-4 h-4" />
                 </div>
                 <span className="text-xs text-slate-700 font-medium">Routine Consistency</span>
@@ -100,7 +100,7 @@ export default function BehavioralSnapshot({ onViewInsights, consistencyScore }:
         {/* Action Button */}
         <button
           onClick={onViewInsights}
-          className="w-full text-center mt-6 py-2.5 px-4 bg-[#6366f1]/10 text-[#6366f1] text-xs font-medium rounded-xl hover:bg-[#6366f1]/20 transition-colors"
+          className="w-full text-center mt-6 py-2.5 px-4 bg-emerald-50 text-emerald-700 text-xs font-medium rounded-xl hover:bg-emerald-100 transition-colors cursor-pointer"
         >
           View all insights
         </button>
@@ -111,13 +111,13 @@ export default function BehavioralSnapshot({ onViewInsights, consistencyScore }:
         <svg className="absolute bottom-0 w-full h-full" viewBox="0 0 350 70" preserveAspectRatio="none">
           <path
             d="M0,45 C90,65 140,25 210,55 C280,75 310,35 350,50 L350,70 L0,70 Z"
-            fill="#dbeafe"
-            opacity="0.5"
+            fill="#e6f4ea"
+            opacity="0.6"
           />
           <path
             d="M0,55 C70,35 150,65 240,40 C300,30 320,60 350,55 L350,70 L0,70 Z"
-            fill="#818cf8"
-            opacity="0.25"
+            fill="#a7f3d0"
+            opacity="0.4"
           />
         </svg>
       </div>

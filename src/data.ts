@@ -47,20 +47,20 @@ export interface DailyLog {
 
 // Full mock data matching the screenshot and adding deep interactivity
 export const mockDailyLogs: DailyLog[] = [
-  { date: "Apr 20", sleepScore: 78, activityScore: 65, focusScore: 42, socialScore: 12 },
-  { date: "Apr 22", sleepScore: 82, activityScore: 60, focusScore: 44, socialScore: 18 },
-  { date: "Apr 24", sleepScore: 80, activityScore: 62, focusScore: 41, socialScore: 25 },
-  { date: "Apr 27", sleepScore: 74, activityScore: 52, focusScore: 38, socialScore: 28 },
-  { date: "Apr 29", sleepScore: 85, activityScore: 68, focusScore: 48, socialScore: 30 },
-  { date: "May 01", sleepScore: 92, activityScore: 72, focusScore: 54, socialScore: 32 },
-  { date: "May 04", sleepScore: 88, activityScore: 74, focusScore: 50, socialScore: 24 },
-  { date: "May 06", sleepScore: 81, activityScore: 66, focusScore: 45, socialScore: 18 },
-  { date: "May 08", sleepScore: 79, activityScore: 59, focusScore: 42, socialScore: 22 },
-  { date: "May 11", sleepScore: 86, activityScore: 53, focusScore: 40, socialScore: 34 },
-  { date: "May 13", sleepScore: 84, activityScore: 64, focusScore: 46, socialScore: 31 },
-  { date: "May 15", sleepScore: 80, activityScore: 70, focusScore: 51, socialScore: 29 },
-  { date: "May 18", sleepScore: 83, activityScore: 78, focusScore: 48, socialScore: 20 },
-  { date: "May 20", sleepScore: 82, activityScore: 72, focusScore: 47, socialScore: 23 },
+  { date: "May 08", sleepScore: 78, activityScore: 65, focusScore: 42, socialScore: 12 },
+  { date: "May 12", sleepScore: 82, activityScore: 60, focusScore: 44, socialScore: 18 },
+  { date: "May 15", sleepScore: 80, activityScore: 62, focusScore: 41, socialScore: 25 },
+  { date: "May 17", sleepScore: 74, activityScore: 52, focusScore: 38, socialScore: 28 },
+  { date: "May 19", sleepScore: 85, activityScore: 68, focusScore: 48, socialScore: 30 },
+  { date: "May 22", sleepScore: 92, activityScore: 72, focusScore: 54, socialScore: 32 },
+  { date: "May 24", sleepScore: 88, activityScore: 74, focusScore: 50, socialScore: 24 },
+  { date: "May 26", sleepScore: 81, activityScore: 66, focusScore: 45, socialScore: 18 },
+  { date: "May 28", sleepScore: 79, activityScore: 59, focusScore: 42, socialScore: 22 },
+  { date: "May 31", sleepScore: 86, activityScore: 53, focusScore: 40, socialScore: 34 },
+  { date: "Jun 02", sleepScore: 84, activityScore: 64, focusScore: 46, socialScore: 31 },
+  { date: "Jun 04", sleepScore: 80, activityScore: 70, focusScore: 51, socialScore: 29 },
+  { date: "Jun 06", sleepScore: 83, activityScore: 78, focusScore: 48, socialScore: 20 },
+  { date: "Jun 08", sleepScore: 82, activityScore: 72, focusScore: 47, socialScore: 23 },
 ];
 
 export const mockInsights: InsightDetail[] = [
@@ -82,8 +82,8 @@ export const mockInsights: InsightDetail[] = [
       { factor: "More social interactions", iconType: "social" }
     ],
     aboutInfo: "This insight is based on your behavioral data and may evolve as more data becomes available.",
-    firstObserved: "Mar 30, 2025",
-    lastUpdated: "May 18, 2025",
+    firstObserved: "Apr 26, 2026",
+    lastUpdated: "Jun 07, 2026",
     weeklyDailies: [
       { day: "Mon", value: 75 },
       { day: "Tue", value: 78 },
@@ -94,12 +94,12 @@ export const mockInsights: InsightDetail[] = [
       { day: "Sun", value: 48, isFocusTarget: true }
     ],
     evidenceDetails: [
-      { week: "Week of Apr 13", value: "Focus score Sunday 45 vs Weekly average 72", validation: "Confirmed" },
-      { week: "Week of Apr 20", value: "Focus score Sunday 48 vs Weekly average 74", validation: "Confirmed" },
-      { week: "Week of Apr 27", value: "Focus score Sunday 42 vs Weekly average 71", validation: "Confirmed" },
-      { week: "Week of May 04", value: "Focus score Sunday 50 vs Weekly average 75", validation: "Confirmed" },
-      { week: "Week of May 11", value: "Focus score Sunday 40 vs Weekly average 70", validation: "Confirmed" },
-      { week: "Week of May 18", value: "Focus score Sunday 48 vs Weekly average 72", validation: "Confirmed" }
+      { week: "Week of Apr 26", value: "Focus score Sunday 45 vs Weekly average 72", validation: "Confirmed" },
+      { week: "Week of May 03", value: "Focus score Sunday 48 vs Weekly average 74", validation: "Confirmed" },
+      { week: "Week of May 10", value: "Focus score Sunday 42 vs Weekly average 71", validation: "Confirmed" },
+      { week: "Week of May 17", value: "Focus score Sunday 50 vs Weekly average 75", validation: "Confirmed" },
+      { week: "Week of May 24", value: "Focus score Sunday 40 vs Weekly average 70", validation: "Confirmed" },
+      { week: "Week of May 31", value: "Focus score Sunday 48 vs Weekly average 72", validation: "Confirmed" }
     ],
     uncertaintyExplanation: "Sunday records show an elevation in missing screen-time logs between 18:00 and 22:00. This data sparsity diminishes telemetry density and accounts for our Medium rating.",
     relatedInsightIds: ["sleep-saturday-shift", "social-weekend-peak"]
@@ -122,8 +122,8 @@ export const mockInsights: InsightDetail[] = [
       { factor: "Absence of alarm triggers on Sundays", iconType: "routine" }
     ],
     aboutInfo: "High data density from continuous wearable synchronization ensures stable classification.",
-    firstObserved: "Mar 15, 2025",
-    lastUpdated: "May 19, 2025",
+    firstObserved: "Apr 04, 2026",
+    lastUpdated: "Jun 06, 2026",
     weeklyDailies: [
       { day: "Mon", value: 85 },
       { day: "Tue", value: 83 },
@@ -134,10 +134,10 @@ export const mockInsights: InsightDetail[] = [
       { day: "Sun", value: 88 }
     ],
     evidenceDetails: [
-      { week: "Week of Apr 20", value: "Bedtime shifted from 22:45 to 00:20", validation: "Confirmed" },
-      { week: "Week of Apr 27", value: "Bedtime shifted from 22:30 to 00:15", validation: "Confirmed" },
-      { week: "Week of May 04", value: "Bedtime shifted from 22:40 to 00:05", validation: "Confirmed" },
-      { week: "Week of May 11", value: "Bedtime shifted from 23:00 to 00:40", validation: "Confirmed" }
+      { week: "Week of May 10", value: "Bedtime shifted from 22:45 to 00:20", validation: "Confirmed" },
+      { week: "Week of May 17", value: "Bedtime shifted from 22:30 to 00:15", validation: "Confirmed" },
+      { week: "Week of May 24", value: "Bedtime shifted from 22:40 to 00:05", validation: "Confirmed" },
+      { week: "Week of May 31", value: "Bedtime shifted from 23:00 to 00:40", validation: "Confirmed" }
     ],
     uncertaintyExplanation: "Our algorithm ranks this with High Confidence due to consistent high-density wearable heart-rate and wrist-movement validation. No telemetry gaps detected.",
     relatedInsightIds: ["focus-sunday-drop", "social-weekend-peak"]
@@ -160,8 +160,8 @@ export const mockInsights: InsightDetail[] = [
       { factor: "Proximity to key contacts", iconType: "activity" }
     ],
     aboutInfo: "Synthesized from peripheral device interaction statistics and geolocation telemetry.",
-    firstObserved: "Apr 05, 2025",
-    lastUpdated: "May 20, 2025",
+    firstObserved: "May 02, 2026",
+    lastUpdated: "Jun 07, 2026",
     weeklyDailies: [
       { day: "Mon", value: 20 },
       { day: "Tue", value: 25 },
@@ -172,8 +172,8 @@ export const mockInsights: InsightDetail[] = [
       { day: "Sun", value: 82, isFocusTarget: true }
     ],
     evidenceDetails: [
-      { week: "Week of May 04", value: "Saturday social contact duration 120min vs weekday median 25min", validation: "Confirmed" },
-      { week: "Week of May 11", value: "Saturday social contact duration 145min vs weekday median 30min", validation: "Confirmed" }
+      { week: "Week of May 24", value: "Saturday social contact duration 120min vs weekday median 25min", validation: "Confirmed" },
+      { week: "Week of May 31", value: "Saturday social contact duration 145min vs weekday median 30min", validation: "Confirmed" }
     ],
     uncertaintyExplanation: "High metadata reliability from verified communication channels. Minor missing coordinates occur inside indoor shielding zones, introducing negligible variance.",
     relatedInsightIds: ["focus-sunday-drop", "sleep-saturday-shift"]
@@ -195,8 +195,8 @@ export const mockInsights: InsightDetail[] = [
       { factor: "Weekly grocery runs or routine strolls", iconType: "routine" }
     ],
     aboutInfo: "Classified with limited statistical depth due to seasonal weather interruptions.",
-    firstObserved: "May 01, 2025",
-    lastUpdated: "May 15, 2025",
+    firstObserved: "May 14, 2026",
+    lastUpdated: "Jun 04, 2026",
     weeklyDailies: [
       { day: "Mon", value: 45 },
       { day: "Tue", value: 50 },
@@ -207,8 +207,8 @@ export const mockInsights: InsightDetail[] = [
       { day: "Sun", value: 58 }
     ],
     evidenceDetails: [
-      { week: "Week of May 08", value: "Thursday walk reached 11,200 steps", validation: "Confirmed" },
-      { week: "Week of May 15", value: "Thursday walk reached 9,400 steps", validation: "Confirmed" }
+      { week: "Week of May 28", value: "Thursday walk reached 11,200 steps", validation: "Confirmed" },
+      { week: "Week of Jun 04", value: "Thursday walk reached 9,400 steps", validation: "Confirmed" }
     ],
     uncertaintyExplanation: "This pattern is rated Low Confidence because we only have 3 occurrences in our records. Frequent GPS dropouts inside fitness studios limit our validation robustness.",
     relatedInsightIds: ["focus-sunday-drop"]

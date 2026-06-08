@@ -37,17 +37,17 @@ export default function NarrativeTimeline({ onTimelineSelectInsight, activeInsig
   };
 
   const getColorClasses = (colorType: string, isCurrentDraft: boolean) => {
-    const base = isCurrentDraft ? "ring-2 ring-blue-500 ring-offset-1 font-bold" : "";
+    const base = isCurrentDraft ? "ring-2 ring-emerald-500 ring-offset-1 font-bold" : "";
     switch (colorType) {
-      case "blue":
-        return `${base} bg-blue-50 text-blue-700 hover:bg-blue-100/80 border border-blue-100`;
-      case "green":
-        return `${base} bg-cyan-50 text-cyan-700 hover:bg-cyan-100/80 border border-cyan-100`;
-      case "yellow":
+      case "blue": // sleep (mapped to fresh teal)
+        return `${base} bg-teal-50 text-teal-700 hover:bg-teal-100/80 border border-teal-150`;
+      case "green": // activity (mapped to fresh emerald)
+        return `${base} bg-emerald-50 text-emerald-700 hover:bg-emerald-100/80 border border-emerald-100`;
+      case "yellow": // focus (mapped to fresh golden amber)
         return `${base} bg-amber-50 text-amber-700 hover:bg-amber-100/80 border border-amber-100/70`;
-      case "purple":
-        return `${base} bg-purple-50 text-purple-700 hover:bg-purple-100/80 border border-purple-100`;
-      case "orange":
+      case "purple": // social (mapped to fresh warm rose)
+        return `${base} bg-rose-50 text-rose-700 hover:bg-rose-100/80 border border-rose-100`;
+      case "orange": // routine (mapped to fresh warm orange)
         return `${base} bg-orange-50 text-orange-700 hover:bg-orange-100/80 border border-[#fde8e3]`;
       default:
         return `${base} bg-slate-50 text-slate-700 border border-slate-100`;
@@ -173,10 +173,10 @@ export default function NarrativeTimeline({ onTimelineSelectInsight, activeInsig
                 >
                   <div className="w-[80px] shrink-0" /> {/* Spacer */}
                   <div className="flex-1 flex justify-between px-4 text-[10px] font-mono text-slate-400">
-                    <span className="w-1/4 text-center">Mar 2025</span>
-                    <span className="w-1/4 text-center">Apr 2025</span>
-                    <span className="w-1/4 text-center">May 2025</span>
-                    <span className="w-1/4 text-center">Jun 2025</span>
+                    <span className="w-1/4 text-center">Mar 2026</span>
+                    <span className="w-1/4 text-center">Apr 2026</span>
+                    <span className="w-1/4 text-center">May 2026</span>
+                    <span className="w-1/4 text-center">Jun 2026</span>
                   </div>
                 </div>
 
@@ -251,7 +251,7 @@ export default function NarrativeTimeline({ onTimelineSelectInsight, activeInsig
               /* Calendar Mode */
               <div className="p-1 sm:p-2 transition-all duration-300">
                 <div className="mb-4">
-                  <h4 className="text-xs font-bold text-slate-600 font-sans tracking-wide">May 2025 Overview</h4>
+                  <h4 className="text-xs font-bold text-slate-600 font-sans tracking-wide">June 2026 Overview</h4>
                 </div>
                 <div className="grid grid-cols-7 gap-1 sm:gap-2.5 max-w-lg">
                   {/* Days indicator header */}
@@ -259,19 +259,17 @@ export default function NarrativeTimeline({ onTimelineSelectInsight, activeInsig
                     <div key={d} className="text-[9px] sm:text-[10px] font-mono text-slate-400 text-center font-bold">{d}</div>
                   ))}
 
-                  {/* Empty offsets to match accurate calendar days start if Wednesday */}
-                  <div className="h-9 sm:h-10 bg-transparent rounded-xl" />
-                  <div className="h-9 sm:h-10 bg-transparent rounded-xl" />
+                  {/* June 1, 2026 starts directly on Monday, so no offset divs are required */}
 
                   {/* Days populate */}
                   {mockCalendarData.map((cell) => {
                     const isFiltered = selectedFilter !== "all" && cell.type !== selectedFilter;
                     const getIconColorType = (type: string) => {
                       switch (type) {
-                        case "sleep": return "bg-blue-500";
-                        case "activity": return "bg-cyan-500";
+                        case "sleep": return "bg-teal-500";
+                        case "activity": return "bg-emerald-500";
                         case "focus": return "bg-amber-500";
-                        case "social": return "bg-purple-500";
+                        case "social": return "bg-rose-500";
                         case "routine": return "bg-orange-500";
                         default: return "bg-slate-300";
                       }
@@ -323,7 +321,7 @@ export default function NarrativeTimeline({ onTimelineSelectInsight, activeInsig
                 max="25"
                 value={panOffset}
                 onChange={(e) => setPanOffset(Number(e.target.value))}
-                className="absolute inset-x-0 w-full opacity-100 accent-blue-600 h-1.5 cursor-pointer rounded-full"
+                className="absolute inset-x-0 w-full opacity-100 accent-emerald-600 h-1.5 cursor-pointer rounded-full"
               />
             </div>
 

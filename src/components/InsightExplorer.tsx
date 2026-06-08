@@ -116,13 +116,13 @@ export default function InsightExplorer({
                 onClick={() => setActiveTab(tab)}
                 className={`py-2 px-1 text-xs font-semibold relative transition-all duration-200 cursor-pointer whitespace-nowrap ${
                   activeTab === tab
-                    ? "text-blue-600 font-bold"
+                    ? "text-teal-600 font-bold"
                     : "text-slate-400 hover:text-slate-600"
                 }`}
               >
                 {tab}
                 {activeTab === tab && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-blue-600 rounded-full" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-teal-600 rounded-full" />
                 )}
               </button>
             ))}
@@ -288,7 +288,7 @@ export default function InsightExplorer({
                       className="text-left p-4 rounded-xl border border-slate-100 hover:border-slate-200 bg-slate-50/30 hover:bg-slate-50 transition-colors cursor-pointer group"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-xs font-semibold text-slate-800 group-hover:text-blue-600 transition-colors">
+                        <span className="text-xs font-semibold text-slate-800 group-hover:text-teal-600 transition-colors">
                           {correlated.title}
                         </span>
                         <span className="text-[9px] px-2 py-0.5 bg-slate-100 text-slate-500 rounded-full">

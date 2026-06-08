@@ -33,9 +33,9 @@ export default function RecentChanges({ onSelectInsight, activeInsightId }: Rece
       compareText: "vs last 30 days",
       metric: "0%",
       isNeutral: true,
-      color: "blue",
-      icon: <RefreshCw className="w-4 h-4 text-blue-500" />,
-      bg: "bg-blue-50/70"
+      color: "teal",
+      icon: <RefreshCw className="w-4 h-4 text-teal-600" />,
+      bg: "bg-teal-50"
     }
   ];
 
@@ -55,7 +55,7 @@ export default function RecentChanges({ onSelectInsight, activeInsightId }: Rece
                 onClick={() => onSelectInsight(item.id)}
                 className={`w-full text-left flex items-center justify-between p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer ${
                   isActive
-                    ? "border-blue-500 bg-blue-50/30 shadow-xs ring-1 ring-blue-500/20"
+                    ? "border-emerald-500 bg-emerald-50/30 shadow-xs ring-1 ring-emerald-500/20"
                     : "border-slate-100 hover:border-slate-200 hover:bg-slate-50/40"
                 }`}
               >

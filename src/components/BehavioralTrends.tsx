@@ -16,25 +16,25 @@ interface ShiftMarker {
 
 const SHIFT_MARKERS: ShiftMarker[] = [
   {
-    date: "Apr 27",
+    date: "May 17",
     metric: "sleep",
     label: "Sleep offset change",
     desc: "Shifted 1.5 hrs later, causing mild social jetlag",
-    color: "#3b82f6"
+    color: "#14b8a6"
   },
   {
-    date: "May 11",
+    date: "May 31",
     metric: "focus",
     label: "Sunday focus drop",
     desc: "Focus metrics drop by average of 27% on weekends",
     color: "#f59e0b"
   },
   {
-    date: "May 18",
+    date: "Jun 04",
     metric: "activity",
     label: "Thursday Activity spike",
     desc: "Temporary surge in athletic cadence (+6,200 steps)",
-    color: "#0ea5e9"
+    color: "#10b981"
   }
 ];
 
@@ -201,27 +201,27 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
             })}
 
             {/* Line Plots */}
-            {/* Sleep line (blue) */}
+            {/* Sleep line (fresh teal) */}
             <path
               d={makeSvgPath(sleepCoords)}
               fill="none"
-              stroke="#3b82f6"
+              stroke="#14b8a6"
               strokeWidth={activeLegend === 'sleep' ? "3" : activeLegend ? "0.75" : "2"}
               opacity={activeLegend === "sleep" ? "1" : activeLegend ? "0.2" : "0.9"}
               className="transition-all duration-300"
             />
 
-            {/* Activity line (green) */}
+            {/* Activity line (fresh emerald) */}
             <path
               d={makeSvgPath(activityCoords)}
               fill="none"
-              stroke="#0ea5e9"
+              stroke="#10b981"
               strokeWidth={activeLegend === 'activity' ? "3" : activeLegend ? "0.75" : "2"}
               opacity={activeLegend === "activity" ? "1" : activeLegend ? "0.2" : "0.9"}
               className="transition-all duration-300"
             />
 
-            {/* Focus line (yellow) */}
+            {/* Focus line (fresh amber) */}
             <path
               d={makeSvgPath(focusCoords)}
               fill="none"
@@ -231,11 +231,11 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
               className="transition-all duration-300"
             />
 
-            {/* Social Balance line (purple) */}
+            {/* Social Balance line (fresh rose) */}
             <path
               d={makeSvgPath(socialCoords)}
               fill="none"
-              stroke="#8b5cf6"
+              stroke="#f43f5e"
               strokeWidth={activeLegend === 'social' ? "3" : activeLegend ? "0.75" : "2"}
               opacity={activeLegend === "social" ? "1" : activeLegend ? "0.2" : "0.9"}
               className="transition-all duration-300"
@@ -244,10 +244,10 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
             {/* Point highlights on hover */}
             {hoveredIndex !== null && (
               <g>
-                <circle cx={sleepCoords[hoveredIndex].x} cy={sleepCoords[hoveredIndex].y} r="4" fill="#3b82f6" stroke="#ffffff" strokeWidth="1.5" />
+                <circle cx={sleepCoords[hoveredIndex].x} cy={sleepCoords[hoveredIndex].y} r="4" fill="#14b8a6" stroke="#ffffff" strokeWidth="1.5" />
                 <circle cx={activityCoords[hoveredIndex].x} cy={activityCoords[hoveredIndex].y} r="4" fill="#10b981" stroke="#ffffff" strokeWidth="1.5" />
                 <circle cx={focusCoords[hoveredIndex].x} cy={focusCoords[hoveredIndex].y} r="4" fill="#f59e0b" stroke="#ffffff" strokeWidth="1.5" />
-                <circle cx={socialCoords[hoveredIndex].x} cy={socialCoords[hoveredIndex].y} r="4" fill="#8b5cf6" stroke="#ffffff" strokeWidth="1.5" />
+                <circle cx={socialCoords[hoveredIndex].x} cy={socialCoords[hoveredIndex].y} r="4" fill="#f43f5e" stroke="#ffffff" strokeWidth="1.5" />
               </g>
             )}
 
@@ -311,7 +311,7 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
               </div>
               <div className="font-bold text-white mb-0.5">{hoveredShift.label}</div>
               <div className="text-slate-300 leading-normal font-sans">{hoveredShift.desc}</div>
-              <div className="text-[9px] font-mono text-slate-400 mt-1.5">{hoveredShift.date}, 2025</div>
+              <div className="text-[9px] font-mono text-slate-400 mt-1.5">{hoveredShift.date}, 2026</div>
               
               {/* Pointer Arrow */}
               <div className="absolute left-1/2 bottom-0 transform -translate-x-1/2 translate-y-full w-0 h-0 border-x-[6px] border-x-transparent border-t-[6px] border-t-slate-900" />
@@ -323,7 +323,7 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
         {hoveredShift && (
           <div className="sm:hidden mt-4 bg-slate-950 border border-slate-800 text-white p-4 rounded-2xl shadow-md transition-all duration-200">
             <div className="flex items-center justify-between mb-1.5">
-              <span className="flex items-center gap-1.5 font-bold uppercase text-[9px] tracking-wide text-indigo-400">
+              <span className="flex items-center gap-1.5 font-bold uppercase text-[9px] tracking-wide text-emerald-400">
                 <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ backgroundColor: hoveredShift.color }} />
                 <span>{hoveredShift.metric} SHIFT SUMMARY</span>
               </span>
@@ -336,7 +336,7 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
             </div>
             <div className="font-bold text-white text-xs mb-0.5">{hoveredShift.label}</div>
             <div className="text-slate-300 text-[11px] leading-relaxed font-sans">{hoveredShift.desc}</div>
-            <div className="text-[9px] font-mono text-slate-500 mt-2">{hoveredShift.date}, 2025</div>
+            <div className="text-[9px] font-mono text-slate-500 mt-2">{hoveredShift.date}, 2026</div>
           </div>
         )}
 
@@ -356,19 +356,19 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
           <button
             onClick={() => handleLegendClick("sleep")}
             className={`flex items-center text-xs transition-all duration-150 py-1 px-2 rounded-lg ${
-              activeLegend === "sleep" ? "bg-blue-50 font-semibold" : ""
+              activeLegend === "sleep" ? "bg-teal-50 font-semibold" : ""
             } ${activeLegend && activeLegend !== "sleep" ? "opacity-40" : "opacity-100"}`}
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-blue-500 mr-1.5 inline-block"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-teal-500 mr-1.5 inline-block"></span>
             <span className="text-slate-600">Sleep</span>
           </button>
           <button
             onClick={() => handleLegendClick("activity")}
             className={`flex items-center text-xs transition-all duration-150 py-1 px-2 rounded-lg ${
-              activeLegend === "activity" ? "bg-teal-50 font-semibold" : ""
+              activeLegend === "activity" ? "bg-emerald-50 font-semibold" : ""
             } ${activeLegend && activeLegend !== "activity" ? "opacity-40" : "opacity-100"}`}
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan-500 mr-1.5 inline-block"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 mr-1.5 inline-block"></span>
             <span className="text-slate-600">Activity</span>
           </button>
           <button
@@ -383,10 +383,10 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
           <button
             onClick={() => handleLegendClick("social")}
             className={`flex items-center text-xs transition-all duration-150 py-1 px-2 rounded-lg ${
-              activeLegend === "social" ? "bg-purple-50 font-semibold" : ""
+              activeLegend === "social" ? "bg-rose-50 font-semibold" : ""
             } ${activeLegend && activeLegend !== "social" ? "opacity-40" : "opacity-100"}`}
           >
-            <span className="w-2.5 h-2.5 rounded-full bg-purple-500 mr-1.5 inline-block"></span>
+            <span className="w-2.5 h-2.5 rounded-full bg-f43f5e mr-1.5 inline-block" style={{ backgroundColor: "#f43f5e" }}></span>
             <span className="text-slate-600">Social Balance</span>
           </button>
         </div>
@@ -397,11 +397,11 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
         <div className="bg-slate-50/80 rounded-xl p-2.5 mt-4 border border-slate-100 grid grid-cols-4 gap-2 text-center transition-all duration-150">
           <div>
             <div className="text-[9px] uppercase text-slate-400 font-mono">Sleep</div>
-            <div className="text-xs font-bold text-blue-600">{displayedLogs[hoveredIndex].sleepScore}%</div>
+            <div className="text-xs font-bold text-teal-600">{displayedLogs[hoveredIndex].sleepScore}%</div>
           </div>
           <div>
             <div className="text-[9px] uppercase text-slate-400 font-mono">Activity</div>
-            <div className="text-xs font-bold text-cyan-600">{displayedLogs[hoveredIndex].activityScore}%</div>
+            <div className="text-xs font-bold text-emerald-600">{displayedLogs[hoveredIndex].activityScore}%</div>
           </div>
           <div>
             <div className="text-[9px] uppercase text-slate-400 font-mono">Focus</div>
@@ -409,7 +409,7 @@ export default function BehavioralTrends({ timeRange }: BehavioralTrendsProps) {
           </div>
           <div>
             <div className="text-[9px] uppercase text-slate-400 font-mono">Social</div>
-            <div className="text-xs font-bold text-purple-600">{displayedLogs[hoveredIndex].socialScore}%</div>
+            <div className="text-xs font-bold text-rose-500" style={{ color: "#f43f5e" }}>{displayedLogs[hoveredIndex].socialScore}%</div>
           </div>
         </div>
       )}

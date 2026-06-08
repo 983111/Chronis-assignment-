@@ -46,9 +46,9 @@ export default function App() {
   };
 
   const dateRanges = {
-    "7D": "May 13 – May 20, 2025",
-    "30D": "Apr 20 – May 20, 2025",
-    "90D": "Feb 20 – May 20, 2025",
+    "7D": "Jun 02 – Jun 08, 2026",
+    "30D": "May 10 – Jun 08, 2026",
+    "90D": "Mar 11 – Jun 08, 2026",
   };
 
   const handleToggleTrackInsight = (insightId: string) => {
@@ -71,7 +71,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#faf9f6]/90 text-slate-800 selection:bg-blue-100 selection:text-blue-900 pb-16 font-sans">
+    <div className="min-h-screen bg-[#faf9f6]/90 text-slate-800 selection:bg-emerald-150 selection:text-emerald-900 pb-16 font-sans">
       
       {/* Prime Header & Navigation Panel */}
       <header className="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-6">
@@ -81,16 +81,16 @@ export default function App() {
           <div className="flex items-center justify-between w-full sm:w-auto">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 relative">
-                {/* Distinctive custom blue icon resembling screenshot logo wings */}
+                {/* Distinctive custom green icon resembling screenshot logo wings */}
                 <svg className="w-full h-full" viewBox="0 0 40 40" fill="none">
                   <path
                     d="M10,25 C12,18 16,14 22,12 C28,10 32,15 30,22 C28,29 24,33 18,34 C12,35 8,32 10,25 Z"
-                    fill="#4f46e5"
+                    fill="#10b981"
                     opacity="0.9"
                   />
                   <path
                     d="M12,28 C14,21 19,16 25,18 C31,20 33,25 30,31 C27,37 21,38 15,36 C10,34 10,31 12,28 Z"
-                    fill="#6366f1"
+                    fill="#14b8a6"
                     opacity="0.65"
                     style={{ mixBlendMode: "multiply" }}
                   />
@@ -119,7 +119,7 @@ export default function App() {
                   onClick={() => setTimeRange(r)}
                   className={`flex-1 sm:flex-none text-center px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide transition-all cursor-pointer ${
                     timeRange === r
-                      ? "bg-white text-indigo-700 shadow-2xs font-bold"
+                      ? "bg-white text-emerald-700 shadow-2xs font-bold"
                       : "text-slate-400 hover:text-slate-600"
                   }`}
                 >
@@ -150,19 +150,19 @@ export default function App() {
                       onClick={() => { setTimeRange("7D"); setShowDatePicker(false); }}
                       className="w-full text-left p-2 hover:bg-slate-50 rounded-lg text-xs font-medium text-slate-700"
                     >
-                      Past 7 Days (May 13 - May 20)
+                      Past 7 Days (Jun 02 - Jun 08)
                     </button>
                     <button
                       onClick={() => { setTimeRange("30D"); setShowDatePicker(false); }}
                       className="w-full text-left p-2 hover:bg-slate-50 rounded-lg text-xs font-medium text-slate-700"
                     >
-                      Past 30 Days (Apr 20 - May 20)
+                      Past 30 Days (May 10 - Jun 08)
                     </button>
                     <button
                       onClick={() => { setTimeRange("90D"); setShowDatePicker(false); }}
                       className="w-full text-left p-2 hover:bg-slate-50 rounded-lg text-xs font-medium text-slate-700"
                     >
-                      Past 90 Days (Feb 20 - May 20)
+                      Past 90 Days (Mar 11 - Jun 08)
                     </button>
                   </div>
                 </div>
@@ -170,7 +170,7 @@ export default function App() {
             </div>
 
             {/* Desktop View Avatar block */}
-            <div className="hidden sm:block w-9 h-9 rounded-full bg-slate-200 border border-slate-100 overflow-hidden shadow-3xs hover:ring-2 hover:ring-indigo-100 transition-all">
+            <div className="hidden sm:block w-9 h-9 rounded-full bg-slate-200 border border-slate-100 overflow-hidden shadow-3xs hover:ring-2 hover:ring-emerald-100 transition-all">
               <img
                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=120"
                 alt="Alex"
