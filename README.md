@@ -48,4 +48,15 @@ To install and initialize this application locally:
    ```bash
    npm run build
    ```
-<img src="screenshots/Overview.png" alt="App Dashboard" width="5000">
+
+   # Overview page- 
+  <img src="screenshots/Overview.png" alt="App Dashboard" width="5000">
+
+
+
+  # Landing page -
+  <img src="screenshots/landing.png" alt="App Dashboard" width="5000">
+
+
+  # Story page-
+  <img src="screenshots/story.png" alt="App Dashboard" width="5000">
