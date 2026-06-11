@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "description": "",
+  "name": "Chronis",
+  "description": "Chronis transforms daily activities into pattern stories, metrics insights, and behavioral diaries built on secure Firestore architecture.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

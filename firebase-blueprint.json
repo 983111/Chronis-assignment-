@@ -1,0 +1,232 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Chronis user profiles containing account metadata.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The unique user authentication ID."
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user."
+        },
+        "onboarded": {
+          "type": "boolean",
+          "description": "Whether the user completed onboarding steps."
+        },
+        "trackingPref": {
+          "type": "array",
+          "description": "Categories selected during onboarding for tracking."
+        },
+        "onboardingPersonalization": {
+          "type": "string",
+          "description": "Personalization role (Student, Professional, Researcher, Founder)."
+        },
+        "collectionPreference": {
+          "type": "string",
+          "description": "Daily check-in style (Manual, Automatic, Both)."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "The timestamp indicating when the user profile was created."
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "email"
+      ]
+    },
+    "DailyEntry": {
+      "title": "DailyEntry",
+      "description": "User's logged behaviors and status indicators for a specific date.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The composite document ID (usually userId_date)."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user."
+        },
+        "date": {
+          "type": "string",
+          "format": "date",
+          "description": "The date of the entry in YYYY-MM-DD format."
+        },
+        "focus": {
+          "type": "number",
+          "description": "Self-assessed focus score (1-10)."
+        },
+        "energy": {
+          "type": "number",
+          "description": "Self-assessed energy score (1-10)."
+        },
+        "mood": {
+          "type": "number",
+          "description": "Self-assessed mood score (1-10)."
+        },
+        "sleep": {
+          "type": "number",
+          "description": "Sleep hours."
+        },
+        "exercise": {
+          "type": "boolean",
+          "description": "Whether user engaged in physical activity."
+        },
+        "social": {
+          "type": "number",
+          "description": "Self-assessed social interaction score (1-10)."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when this entry was created."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "date",
+        "focus",
+        "energy",
+        "mood",
+        "sleep",
+        "exercise",
+        "social"
+      ]
+    },
+    "Insight": {
+      "title": "Insight",
+      "description": "A behavioral pattern detected across history.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID of the insight."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The associated user ID."
+        },
+        "title": {
+          "type": "string",
+          "description": "Name or headline of the insight pattern."
+        },
+        "description": {
+          "type": "string",
+          "description": "Full description of the pattern."
+        },
+        "confidence": {
+          "type": "number",
+          "description": "Calculated confidence score as a percentage."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "Improving",
+            "Declining",
+            "Stable"
+          ],
+          "description": "Trend status (Improving, Declining, Stable)."
+        },
+        "metric": {
+          "type": "string",
+          "description": "Targeted behavioral metric (sleep, focus, activity, energy, social, routine)."
+        },
+        "factors": {
+          "type": "array",
+          "description": "Possible factors causing this pattern."
+        },
+        "evidenceText": {
+          "type": "string",
+          "description": "Observation summary descriptive text."
+        },
+        "missingDataText": {
+          "type": "string",
+          "description": "Security or data gap explanation for the confidence rating."
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of extraction."
+        }
+      },
+      "required": [
+        "userId",
+        "title",
+        "description",
+        "confidence",
+        "createdAt"
+      ]
+    },
+    "Story": {
+      "title": "Story",
+      "description": "Chronis monthly summaries framing behavioral evolutions in a cohesive diary.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique ID for the monthly narrative."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Associated user."
+        },
+        "month": {
+          "type": "string",
+          "description": "The target month, e.g., 'March', 'April'."
+        },
+        "title": {
+          "type": "string",
+          "description": "Editorial chapter header."
+        },
+        "summary": {
+          "type": "string",
+          "description": "Deep prose style narrative explaining logs in detail."
+        },
+        "status": {
+          "type": "string",
+          "description": "High level status headline (e.g. 'Routine Improved', 'Focus Declined')."
+        },
+        "impactDetails": {
+          "type": "object",
+          "description": "Metric impacts observed during this month."
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "userId",
+        "month",
+        "title",
+        "summary"
+      ]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Root user profile storage."
+    },
+    "users/{userId}/entries/{entryId}": {
+      "schema": "DailyEntry",
+      "description": "Daily behavioral check-in telemetry records."
+    },
+    "users/{userId}/insights/{insightId}": {
+      "schema": "Insight",
+      "description": "Targeted behavioral patterns detected from history."
+    },
+    "users/{userId}/stories/{storyId}": {
+      "schema": "Story",
+      "description": "Signature monthly narratives generated from behavioral entries."
+    }
+  }
+}

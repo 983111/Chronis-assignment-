@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, CheckCircle2, User, Users, RefreshCw, Calendar, Eye, Heart, HelpCircle, Shield, Moon, Target, Sparkles, Star } from "lucide-react";
+import { ArrowLeft, CheckCircle2, User, Users, RefreshCw, Calendar, Eye, Heart, HelpCircle, Shield, Moon, Target, Star } from "lucide-react";
 import { InsightDetail, mockInsights } from "../data";
 
 interface InsightExplorerProps {

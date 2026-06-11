@@ -1,0 +1,111 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- Global Safety Net ---
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Global Helpers ---
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    // --- Entity Specific Validators ---
+    
+    function isValidUser(data) {
+      return data.keys().hasAll(['id', 'name', 'email'])
+        && data.id == request.auth.uid
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 128
+        && data.email is string && data.email.size() > 0 && data.email.size() <= 128;
+    }
+
+    function isValidEntry(data) {
+      return data.keys().hasAll(['id', 'userId', 'date', 'focus', 'energy', 'mood', 'sleep', 'exercise', 'social'])
+        && data.userId == request.auth.uid
+        && data.date is string && data.date.size() == 10
+        && (data.focus is int || data.focus is float) && data.focus >= 1 && data.focus <= 10
+        && (data.energy is int || data.energy is float) && data.energy >= 1 && data.energy <= 10
+        && (data.mood is int || data.mood is float) && data.mood >= 1 && data.mood <= 10
+        && (data.sleep is int || data.sleep is float) && data.sleep >= 0 && data.sleep <= 24
+        && data.exercise is bool
+        && (data.social is int || data.social is float) && data.social >= 1 && data.social <= 10;
+    }
+
+    function isValidInsight(data) {
+      return data.keys().hasAll(['userId', 'title', 'description', 'confidence', 'createdAt'])
+        && data.userId == request.auth.uid
+        && data.title is string && data.title.size() > 0 && data.title.size() <= 200
+        && data.description is string && data.description.size() > 0 && data.description.size() <= 2000
+        && (data.confidence is int || data.confidence is float) && data.confidence >= 0 && data.confidence <= 100;
+    }
+
+    function isValidStory(data) {
+      return data.keys().hasAll(['userId', 'month', 'title', 'summary'])
+        && data.userId == request.auth.uid
+        && data.month is string && data.month.size() > 0 && data.month.size() <= 40
+        && data.title is string && data.title.size() > 0 && data.title.size() <= 200
+        && data.summary is string && data.summary.size() > 0 && data.summary.size() <= 10000;
+    }
+
+    // --- Matched Paths & Gates ---
+
+    match /users/{userId} {
+      allow get: if isOwner(userId) && isValidId(userId);
+      allow list: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidId(userId) && isValidUser(incoming());
+      
+      // Allow profile updates if user remains owner and critical immutable state isn't tampered with
+      allow update: if isOwner(userId) && isValidId(userId) && isValidUser(incoming())
+        && incoming().id == existing().id;
+        
+      allow delete: if isOwner(userId) && isValidId(userId);
+
+      // Embedded Collections
+      
+      match /entries/{entryId} {
+        allow get: if isOwner(userId) && isValidId(entryId);
+        allow list: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidId(entryId) && isValidEntry(incoming());
+        allow update: if isOwner(userId) && isValidId(entryId) && isValidEntry(incoming())
+          && incoming().userId == existing().userId;
+        allow delete: if isOwner(userId) && isValidId(entryId);
+      }
+
+      match /insights/{insightId} {
+        allow get: if isOwner(userId) && isValidId(insightId);
+        allow list: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidId(insightId) && isValidInsight(incoming());
+        allow update: if isOwner(userId) && isValidId(insightId) && isValidInsight(incoming())
+          && incoming().userId == existing().userId;
+        allow delete: if isOwner(userId) && isValidId(insightId);
+      }
+
+      match /stories/{storyId} {
+        allow get: if isOwner(userId) && isValidId(storyId);
+        allow list: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidId(storyId) && isValidStory(incoming());
+        allow update: if isOwner(userId) && isValidId(storyId) && isValidStory(incoming())
+          && incoming().userId == existing().userId;
+        allow delete: if isOwner(userId) && isValidId(storyId);
+      }
+    }
+  }
+}
