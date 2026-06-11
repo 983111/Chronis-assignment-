@@ -2,6 +2,8 @@
 
 This repository contains the end-to-end interactive user experience prototype for Chronis, built in React and Tailwind CSS. The interface is optimized to allow a user to explore behavioral trends, evidence validation logs, data uncertainty parameters, and historical timelines.
 
+# Deployed app - https://chronis-assignment.vercel.app/
+
 ## Core Prototype Features
 
 ### 1. Dashboard Segment
