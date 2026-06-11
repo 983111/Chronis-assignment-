@@ -48,3 +48,4 @@ To install and initialize this application locally:
    ```bash
    npm run build
    ```
+<img src="screenshots/Overview.png" alt="App Dashboard" width="500">
