@@ -27,7 +27,7 @@ export default function AuthPage({ onAuthSuccess, onBack }: AuthPageProps) {
         if (!name.trim()) throw new Error("Full Name is required.");
         if (password.length < 6) throw new Error("Password must be at least 6 characters.");
 
-        // Create firebase Auth Account
+        // Create Auth Account
         const userCredential = await createUserAuth(auth, email, password);
         const user = userCredential.user;
 
@@ -113,7 +113,7 @@ export default function AuthPage({ onAuthSuccess, onBack }: AuthPageProps) {
       } else if (errorStr.includes("weak-password")) {
         msg = "Password must be at least 6 characters.";
       } else if (errorStr.includes("operation-not-allowed")) {
-        msg = "Email/Password authentication provider is not enabled in the Firebase Console. To resolve this: 1. Go to your Firebase Console. 2. Navigate to Build -> Authentication -> Sign-in method. 3. Click 'Add new provider'. 4. Select and enable 'Email/Password', then click Save.";
+        msg = "Authentication is currently unavailable. Please ensure that the sign-in provider is fully configured.";
       } else {
         msg = err?.message || "An authentication error occurred.";
       }

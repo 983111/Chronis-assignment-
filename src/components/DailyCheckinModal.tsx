@@ -45,7 +45,7 @@ export default function DailyCheckinModal({ userId, isDemo, onClose, onCheckinSu
       };
 
       if (!isDemo) {
-        // Log to LocalStorage instead of Firestore
+        // Log to client-side LocalStorage cache
         const cachedEntriesRaw = localStorage.getItem(`chronis_entries_${userId}`);
         const currentEntries: DailyEntry[] = cachedEntriesRaw ? JSON.parse(cachedEntriesRaw) : [];
         const filtered = currentEntries.filter(item => item.date !== dateStrYMD);

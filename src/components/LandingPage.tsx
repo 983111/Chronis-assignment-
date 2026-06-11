@@ -147,12 +147,12 @@ export default function LandingPage({ onGetStarted, onViewDemo }: LandingPagePro
           <ShieldCheck className="w-12 h-12 text-rose-400 mx-auto mb-6" />
           <h2 className="text-2xl font-serif text-white mb-4">Your Privacy First</h2>
           <p className="text-slate-400 text-sm font-light leading-relaxed mb-8 max-w-xl mx-auto">
-            Chronis is built on absolute Zero-Trust. Your behavioral metrics are strictly isolated, authenticated securely under Firebase, and never sold to third-party brokers. What happens in your routine stays yours.
+            Chronis is built on absolute Zero-Trust. Your behavioral metrics are strictly isolated, authenticated securely, and never sold to third-party brokers. What happens in your routine stays yours.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-lg mx-auto text-left text-xs text-slate-400 bg-slate-800/40 p-5 rounded-2xl border border-slate-800">
             <div className="flex items-start gap-2">
               <span className="text-rose-400 font-bold font-mono">✓</span>
-              <span>Fully Secure Firestore isolated DB structure</span>
+              <span>Fully Secure isolated data storage</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-rose-400 font-bold font-mono">✓</span>

@@ -105,7 +105,7 @@ export default function ProfileView({
           <div className="bg-slate-50 border border-slate-200/50 rounded-2xl p-4.5 text-[10.5px] text-slate-500 mt-8 mb-2 leading-relaxed">
             <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest font-mono flex items-center gap-1.5 mb-1.5">
               <ShieldCheck className="w-4 h-4 text-emerald-500" />
-              <span>ISOLATED FIRESTORE RULES</span>
+              <span>ISOLATED SECURITY POLICY</span>
             </span>
             All sub-records are securely validated and locked via our Fortress Zero-Trust firewall policy. Personal logs remain structurally private.
           </div>
